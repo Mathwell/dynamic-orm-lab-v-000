@@ -73,7 +73,7 @@ class Student < InteractiveRecord
       sql = "SELECT * FROM #{self.table_name} WHERE grade=?"
       DB[:conn].execute(sql, grade)
     end
-      
+
   end
 
 
