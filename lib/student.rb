@@ -7,7 +7,7 @@ class Student < InteractiveRecord
   def initialize
   end
 
-  def table_name
+  def self.table_name
      self.to_s.downcase.pluralize
   end
 
