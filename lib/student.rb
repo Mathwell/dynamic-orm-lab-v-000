@@ -62,9 +62,18 @@ class Student < InteractiveRecord
     DB[:conn].execute(sql, name)
   end
 
-  def self.find_by(name, grade)
-    sql = "SELECT * FROM #{self.table_name} WHERE name =? AND grade=?"
-    DB[:conn].execute(sql, name, grade)
+  def self.find_by(name:nil, grade:nil)
+    if name!=nil and grade!=nil
+      sql = "SELECT * FROM #{self.table_name} WHERE name =? AND grade=?"
+      DB[:conn].execute(sql, name, grade)
+    elsif name!=nil
+      sql = "SELECT * FROM #{self.table_name} WHERE name =?"
+      DB[:conn].execute(sql, name)
+    else
+      sql = "SELECT * FROM #{self.table_name} WHERE grade=?"
+      DB[:conn].execute(sql, grade)
+    end
+      
   end
 
 
