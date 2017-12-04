@@ -35,6 +35,5 @@ class Student < InteractiveRecord
   def find_by
   end
 
-  end
 
 end
